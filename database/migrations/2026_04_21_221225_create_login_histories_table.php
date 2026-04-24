@@ -13,12 +13,9 @@ return new class extends Migration
     {
        Schema::create('login_histories', function (Blueprint $table) {
             $table->id();
-
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-
-            $table->string('ip_address')->nullable();
-            $table->string('device')->nullable();
-
+            $table->string('ip');
+            $table->text('user_agent')->nullable();
             $table->timestamps();
         });
     }
